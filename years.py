@@ -115,7 +115,6 @@ def plot_year_frequency(year_counts, year_clues):
         x='Year',
         y='Frequency',
         custom_data=['hover_text'],
-        title=f'Frequency of Years Mentioned in Jeopardy! Clues',
         labels={'Year': 'Year Mentioned in Clue', 'Frequency': 'Number of Mentions'}
     )
     

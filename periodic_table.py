@@ -243,7 +243,6 @@ def create_periodic_table_plot(element_counts, element_clues):
     ))
     
     fig.update_layout(
-        title='Jeopardy Answers by Element',
         xaxis=dict(
             showgrid=False,
             zeroline=False,

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeopardy! Data Visualizations</title>
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            margin: 0; 
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #dee2e6;
+        }
+        .chart-container {
+            margin: 50px 0;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #343a40;
+        }
+        h2 {
+            font-size: 1.8em;
+            color: #495057;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ced4da;
+        }
+        iframe {
+            width: 100%;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Jeopardy! Data Visualizations</h1>
+        <p>A collection of interactive charts exploring Jeopardy! data.</p>
+    </div>
+
+    <div class="chart-container">
+        <h2>Hardest Categories Network Graph</h2>
+        <iframe src="charts/jeopardy_stumper_similarity_graph.html" height="850px"></iframe>
+    </div>
+
+    <div class="chart-container">
+        <h2>Top Answers Bump Chart</h2>
+        <iframe src="charts/jeopardy_answer_rank_bump_chart.html" height="700px"></iframe>
+    </div>
+
+    <div class="chart-container">
+        <h2>Year Mention Frequency Chart</h2>
+        <iframe src="charts/jeopardy_year_frequency_clues.html" height="700px"></iframe>
+    </div>
+
+    <div class="chart-container">
+        <h2>Answers by Country World Map</h2>
+        <iframe src="charts/jeopardy_answers_by_country.html" height="700px"></iframe>
+    </div>
+
+    <div class="chart-container">
+        <h2>Answers by US State Map</h2>
+        <iframe src="charts/jeopardy_answers_by_state.html" height="700px"></iframe>
+    </div>
+    
+    <div class="chart-container">
+        <h2>Answers by Chemical Element</h2>
+        <iframe src="charts/jeopardy_answers_by_element.html" height="800px"></iframe>
+    </div>
+
+</body>
+</html>

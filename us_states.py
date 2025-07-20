@@ -109,7 +109,6 @@ def create_us_map(state_counts, state_clues):
         hover_name="state_name",
         custom_data=['hover_text'],
         color_continuous_scale=['#FFFFFF', '#070973'],
-        title="Jeopardy Answers by US State"
     )
     
     fig.update_traces(hovertemplate='%{customdata}<extra></extra>')

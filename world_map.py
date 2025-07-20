@@ -121,7 +121,6 @@ def create_world_map(country_counts, country_clues):
         hover_name="country_name",
         custom_data=['hover_text'],
         color_continuous_scale=['#FFFFFF', '#070973'], # MODIFIED: Custom color scale
-        title="Jeopardy Answers by Country"
     )
     
     fig.update_traces(hovertemplate='%{customdata}<extra></extra>')

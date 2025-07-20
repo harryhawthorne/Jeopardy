@@ -81,7 +81,6 @@ def plot_bump_chart(df, legend_order, top_n=20):
         custom_data=['hover_text'],
         category_orders={'answer': legend_order},
         color_discrete_sequence=px.colors.qualitative.Plotly,
-        title='Changing Ranks of Top 20 Answers by Season',
         labels={'season': 'Season', 'rank': 'Rank', 'answer': 'Answer'},
         line_shape='spline',
         render_mode='svg'
