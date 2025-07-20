@@ -9,44 +9,56 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
             margin: 0; 
             padding: 20px;
-            background-color: #f8f9fa;
-            color: #212529;
+            background-color: #070973;
+            color: #FFFFFF;
         }
         .header {
             text-align: center;
             padding-bottom: 20px;
-            border-bottom: 2px solid #dee2e6;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
         }
         .chart-container {
             margin: 50px 0;
+            /* MODIFIED: Added gold border, padding, and border-radius */
+            border: 3px solid #FFCC00;
+            border-radius: 8px;
+            padding: 20px;
         }
         .description {
             font-size: 1em;
-            color: #6c757d;
+            color: #d1d1d1;
             max-width: 900px;
             line-height: 1.6;
+            margin-left: auto;
+            margin-right: auto;
         }
         h1 {
-            font-size: 2.5em;
-            color: #343a40;
+            font-size: 3em;
+            font-family: Impact, sans-serif;
+            color: #FFFFFF;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         h2 {
             font-size: 1.8em;
-            color: #495057;
+            color: #FFFFFF;
             padding-bottom: 10px;
-            border-bottom: 1px solid #ced4da;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         }
         iframe {
             width: 100%;
-            border: 1px solid #dee2e6;
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         code {
             background-color: #e9ecef;
             padding: 2px 4px;
             border-radius: 3px;
             font-family: monospace;
+            color: #212529;
+        }
+        a {
+            color: #FFCC00;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -54,20 +66,20 @@
 
     <div class="header">
         <h1>Jeopardy! Data Visualisations</h1>
-        <p>A collection of interactive charts exploring Jeopardy! data. Hover over chart elements to see relevant clues and answers.</p>
-        <p>The data was collected through webscraping and contains 500,000+ clues and answers.</p>
+        <p>A collection of interactive charts exploring Jeopardy! data.</p>
+        <p>Data was collected using a webscraper and contains over 500,000 clues and answers.</p>
     </div>
 
     <div class="chart-container">
-        <h2>Hardest Categories Network Graph</h2>
+        <h2>Network of hardest categories</h2>
         <p class="description">
-            This graph shows the semantic relationships between the most difficult categories in Jeopardy!, filtered to include only those with at least 25 <a href="https://www.j-archive.com/help.php#triplestumper" target="_blank">Triple Stumpers</a> over the shows history. We use the sentence-transformer model <code>all-MiniLM-L6-v2</code> to create vector embeddings from the text of all Triple Stumper clues and answers within each category. We then use cosine similarity between these vectors to link the most similar categories. Larger nodes represent categories with a higher proportion of Triple Stumpers to total clues.
+            This graph shows the semantic relationships between the most difficult categories in Jeopardy!, filtered to include only those with at least 25 <a href="https://www.j-archive.com/help.php#triplestumper" target="_blank">Triple Stumpers</a>. We use the sentence-transformer model <code>all-MiniLM-L6-v2</code> to create vector embeddings from the text of all Triple Stumper clues and answers within each category. We then use cosine similarity between these vectors to link the most similar categories. Larger nodes represent categories with a higher proportion of Triple Stumpers to total clues.
         </p>
         <iframe src="charts/jeopardy_stumper_similarity_graph.html" height="850px"></iframe>
     </div>
 
     <div class="chart-container">
-        <h2>Top Answers Bump Chart</h2>
+        <h2>Top answers by season</h2>
         <p class="description">
             This bump chart tracks the changing rank of the most frequently occurring answers over the seasons. It shows how some of the most common answers like 'Australia' and 'Canada' have been relatively common for lots of seasons, while others rise and fall in popularity.
         </p>
@@ -75,7 +87,7 @@
     </div>
 
     <div class="chart-container">
-        <h2>Year Mention Frequency Chart</h2>
+        <h2>Years mentioned in clues</h2>
         <p class="description">
             This chart analyses the text of all clues, looking for any four-digit numbers that we can interpret as a year. The frequency of each year is plotted to show which historical periods are most referenced in Jeopardy!.
         </p>
@@ -83,7 +95,7 @@
     </div>
 
     <div class="chart-container">
-        <h2>Answers by Country World Map</h2>
+        <h2>Answers from around the world</h2>
         <p class="description">
             This map displays the frequency of answers that are simply a country name.
         </p>
@@ -91,7 +103,7 @@
     </div>
 
     <div class="chart-container">
-        <h2>Answers by US State Map</h2>
+        <h2>Answers from around the US</h2>
         <p class="description">
             This map shows the frequency of answers that are US state names.
         </p>
@@ -99,7 +111,7 @@
     </div>
     
     <div class="chart-container">
-        <h2>Answers by Chemical Element</h2>
+        <h2>Answers on the Periodic Table</h2>
         <p class="description">
             This visualisation displays the frequency of answers that are elements from the periodic table.
         </p>
