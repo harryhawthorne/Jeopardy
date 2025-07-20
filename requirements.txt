@@ -1,0 +1,10 @@
+requests
+beautifulsoup4
+lxml
+plotly
+pandas
+numpy<2
+sentence-transformers
+torch
+scikit-learn
+pycountry
