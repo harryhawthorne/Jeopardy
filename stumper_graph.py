@@ -83,7 +83,6 @@ def build_graph(similarity_matrix, category_names, category_counts, total_stumpe
     """Builds a NetworkX graph with rescaled node sizes for better visual distinction."""
     G = nx.Graph()
 
-    # --- MODIFIED: Pre-calculate ratios to find min/max for scaling ---
     ratios = {}
     for name in category_names:
         total_stumpers = total_stumper_counts.get(name, 0)
@@ -93,7 +92,6 @@ def build_graph(similarity_matrix, category_names, category_counts, total_stumpe
     min_ratio = min(ratios.values()) if ratios else 0
     max_ratio = max(ratios.values()) if ratios else 0
     
-    # Define the output visual size range
     min_size = 10
     max_size = 50
     
@@ -102,11 +100,10 @@ def build_graph(similarity_matrix, category_names, category_counts, total_stumpe
         total_stumpers = total_stumper_counts.get(name, 0)
         stumper_ratio = ratios.get(name, 0)
         
-        # --- MODIFIED: Rescale the node size for better visual contrast ---
         if max_ratio > min_ratio:
             normalized_ratio = (stumper_ratio - min_ratio) / (max_ratio - min_ratio)
         else:
-            normalized_ratio = 0.5 # Default to medium size if all ratios are the same
+            normalized_ratio = 0.5
         
         node_size = float(min_size + normalized_ratio * (max_size - min_size))
         
@@ -116,7 +113,7 @@ def build_graph(similarity_matrix, category_names, category_counts, total_stumpe
 
         title = (
             f"{name}\n"
-            f"Category Appeared {total_appearances} time(s)\n"
+            f"Category Appeared: {total_appearances} times\n"
             f"Total Triple Stumpers: {total_stumpers}\n"
             f"Triple Stumper Ratio: {stumper_ratio:.1%}\n"
             f"-----------------------------\n"
@@ -206,13 +203,25 @@ def main():
     logging.info(f"Generating interactive graph: {CONFIG['OUTPUT_HTML_FILE']}")
     net = Network(height="90vh", width="100%", cdn_resources='remote', bgcolor="white", font_color="black")
     net.from_nx(G)
+    
+    # --- MODIFIED: Added label scaling options to make labels permanently visible ---
     options = """
     const options = {
+      "nodes": {
+        "font": {
+          "size": 40
+        },
+        "scaling": {
+          "label": {
+            "enabled": false
+          }
+        }
+      },
       "physics": {
         "enabled": true,
         "forceAtlas2Based": {
-          "gravitationalConstant": -250,
-          "centralGravity": 0.01,
+          "gravitationalConstant": -150,
+          "centralGravity": 0.005,
           "springLength": 200,
           "springConstant": 0.08,
           "damping": 0.4,

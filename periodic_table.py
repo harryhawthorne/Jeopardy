@@ -181,10 +181,10 @@ def create_periodic_table_plot(element_counts, element_clues):
         # Position Lanthanides and Actinides below the main table
         if 57 <= el['number'] <= 71:  # Lanthanides
             x_pos = el['number'] - 57 + 3
-            y_pos = 8.5  # Manually place this row below the main table
+            y_pos = 8.5
         elif 89 <= el['number'] <= 103:  # Actinides
             x_pos = el['number'] - 89 + 3
-            y_pos = 9.5 # Manually place this row further below
+            y_pos = 9.5
         else:
             x_pos = el['group']
             y_pos = el['period']
@@ -224,7 +224,7 @@ def create_periodic_table_plot(element_counts, element_clues):
         hovertemplate='%{customdata}<extra></extra>',
         marker=dict(
             symbol='square',
-            size=45,
+            size=40,  # <-- REDUCED MARKER SIZE
             color=df['count'],
             colorscale=['#FFFFFF', '#070973'],
             showscale=True,
@@ -244,22 +244,21 @@ def create_periodic_table_plot(element_counts, element_clues):
     
     fig.update_layout(
         xaxis=dict(
+            range=[0, 19],
             showgrid=False,
             zeroline=False,
             showticklabels=False,
             fixedrange=True
         ),
         yaxis=dict(
+            range=[10, 0.5],
             showgrid=False,
             zeroline=False,
             showticklabels=False,
-            autorange='reversed',
             fixedrange=True
         ),
         plot_bgcolor='white',
         paper_bgcolor='white',
-        width=1200,
-        height=800,
         hoverlabel=dict(
             bgcolor="white",
             font_size=12,
@@ -269,7 +268,6 @@ def create_periodic_table_plot(element_counts, element_clues):
 
     fig.write_html("charts/jeopardy_answers_by_element.html")
     print("Periodic table saved to charts/jeopardy_answers_by_element.html")
-
 
 if __name__ == "__main__":
     print("Analyzing Jeopardy data for chemical elements...")
